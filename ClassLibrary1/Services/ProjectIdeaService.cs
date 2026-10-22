@@ -1,12 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace ClassLibrary1.Services
+namespace SchollLibraryMini.Web.Models;
+
+public enum Difficulty
 {
-    internal class ProjectIdeaService
-    {
-    }
+    Easy,
+    Medium,
+    Hard
 }
+
+public static class DifficultyExtensions
+{
+    public static string ToBg(this Difficulty d) => d switch
+    {
+        Difficulty.Easy => "Лесно",
+        Difficulty.Medium => "Средно",
+        Difficulty.Hard => "Трудно",
+        _ => d.ToString()
+    };
+}
+
